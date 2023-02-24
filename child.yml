@@ -20,7 +20,7 @@ grandchild-1:
   trigger:
     include:
       - artifact: grandchild-first.yml
-        job: child
+        job: grandchild pipeline generation
     forward:
       pipeline_variables: true
 
@@ -29,6 +29,6 @@ grandchild-2:
   trigger:
     include:
       - artifact: grandchild-second
-        job: child
+        job: grandchild pipeline generation
     forward:
       pipeline_variables: true
