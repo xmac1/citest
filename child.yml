@@ -3,7 +3,7 @@ stages:
   - grandchild
 
 default:
-  image: ubuntu
+  image: alpine/curl
 
 grandchild pipeline generation:
   stage: control
