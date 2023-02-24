@@ -1,0 +1,28 @@
+.dynamic-rules:
+  rules:
+    - if: $EXTERNAL_PIPELINE
+      when: success
+  stage: .pre
+  allow_failure: true
+
+dynamic-pipeline-generation:
+  extends: 
+    - .dynamic-rules
+  script:
+    - curl https://raw.githubusercontent.com/xmac1/citest/main/child.yml -O
+  artifacts:
+    paths: 
+      - child.yml
+
+dynamic-pipeline-trigger:
+  extends: 
+    - .dynamic-rules
+  needs:
+    - dynamic-pipeline-generation
+  trigger:
+    include:
+      - artifact: child.yml
+        job: dynamic-pipeline-generation
+    forward:
+      pipeline_variables: true
+    

@@ -1,0 +1,37 @@
+stages:
+  - control
+  - grandchild
+
+default:
+  image: ubuntu
+
+grandchild pipeline generation:
+  rules:
+    - if: $EXTERNAL_CI
+      when: on_success
+  stage: control
+  script:
+    - curl https://raw.githubusercontent.com/xmac1/citest/main/grandchild-first.yml -O
+    - curl https://raw.githubusercontent.com/xmac1/citest/main/grandchild-second.yml -O
+  artifacts:
+    paths:
+      - grandchild-first.yml
+      - grandchild-second.yml
+
+grandchild-1:
+  stage: grandchild
+  trigger:
+    include:
+      - artifact: grandchild-first.yml
+        job: child
+    forward:
+      pipeline_variables: true
+
+grandchild-2:
+  stage: grandchild
+  trigger:
+    include:
+      - artifact: grandchild-second
+        job: child
+    forward:
+      pipeline_variables: true
