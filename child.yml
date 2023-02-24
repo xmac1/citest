@@ -8,8 +8,8 @@ default:
 grandchild pipeline generation:
   stage: control
   script:
-    - curl https://raw.githubusercontent.com/xmac1/citest/main/grandchild-first.yml -O
-    - curl https://raw.githubusercontent.com/xmac1/citest/main/grandchild-second.yml -O
+    - curl https://raw.githubusercontent.com/xmac1/citest/ddd/grandchild-first.yml -O
+    - curl https://raw.githubusercontent.com/xmac1/citest/ddd/grandchild-second.yml -O
   artifacts:
     paths:
       - grandchild-first.yml
