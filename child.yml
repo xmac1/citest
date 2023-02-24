@@ -6,9 +6,6 @@ default:
   image: ubuntu
 
 grandchild pipeline generation:
-  rules:
-    - if: $EXTERNAL_PIPELINE
-      when: on_success
   stage: control
   script:
     - curl https://raw.githubusercontent.com/xmac1/citest/main/grandchild-first.yml -O
