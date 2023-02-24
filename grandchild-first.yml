@@ -10,4 +10,4 @@ test-job:
   stage: test
   script:
     - echo  $EXTERNAL_PIPELINE
-    - echo "pipeline id: $CI_PIPELINE_ID"
+    - echo "pipeline id $CI_PIPELINE_ID"
