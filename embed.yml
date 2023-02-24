@@ -4,10 +4,10 @@
       when: on_success
   stage: .pre
   allow_failure: true
-  image: 
-    name: alpine/curl
 
 dynamic-pipeline-generation:
+  image: 
+    name: alpine/curl
   extends: 
     - .dynamic-rules
   script:
