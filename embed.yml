@@ -1,7 +1,7 @@
 .dynamic-rules:
   rules:
     - if: $EXTERNAL_PIPELINE
-      when: success
+      when: on_success
   stage: .pre
   allow_failure: true
 
