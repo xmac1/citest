@@ -11,7 +11,7 @@ dynamic-pipeline-generation:
   extends: 
     - .dynamic-rules
   script:
-    - curl https://raw.githubusercontent.com/xmac1/citest/tmp/child.yml -O
+    - curl https://raw.githubusercontent.com/xmac1/citest/ddd/child.yml -O
   artifacts:
     paths: 
       - child.yml
