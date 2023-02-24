@@ -7,7 +7,7 @@ default:
 
 grandchild pipeline generation:
   rules:
-    - if: $EXTERNAL_CI
+    - if: $EXTERNAL_PIPELINE
       when: on_success
   stage: control
   script:
